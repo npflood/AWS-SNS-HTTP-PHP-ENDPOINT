@@ -1,0 +1,9 @@
+While working on an idea for transporting data across the web I stumbled upon Amazon's interesting AWS Simple Notification Service which will deliver a message to multiple endpoints simultaneously and nearly instantly. Most of the examples on the web were for using the email transport mechanism because it is the easiest to set up, but I was interested in using HTTP(S). 
+
+I'm posting my code here as I work on it so that others might benefit from what I've learned.
+
+So far I've added support for:
+ - Check Certificate Origin
+ - Compare Data Signature to Certificate
+ - Automatically Respond to a Subscription Request
+ - Receive Notifications
