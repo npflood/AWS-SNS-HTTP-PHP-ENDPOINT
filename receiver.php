@@ -103,11 +103,6 @@ if($verifyCertificate){
 	}
 }
 
-
-//TODO: Add Safe To Process Checks To Each Of The Below
-
-
-
 if($safeToProcess){
 
 	//Handle A Subscription Request Programmatically
