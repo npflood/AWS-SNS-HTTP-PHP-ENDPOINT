@@ -67,23 +67,39 @@ if($verifyCertificate){
 	
 	
 	//Build Up The String That Was Originally Encoded With The AWS Key So You Can Validate It Against Its Signature.
-
-	$validationString = "";
-	$validationString .= "Message\n";
-	$validationString .= $json->Message . "\n";
-	$validationString .= "MessageId\n";
-	$validationString .= $json->MessageId . "\n";
-	if($json->Subject != ""){
-		$validationString .= "Subject\n";
-		$validationString .= $json->Subject . "\n";
+	if($json->Type = "SubscriptionConfirmation"){
+		$validationString = "";
+		$validationString .= "Message\n";
+		$validationString .= $json->Message . "\n";
+		$validationString .= "MessageId\n";
+		$validationString .= $json->MessageId . "\n";
+		$validationString .= "SubscribeURL\n";
+		$validationString .= $json->SubscribeURL . "\n";
+		$validationString .= "Timestamp\n";
+		$validationString .= $json->Timestamp . "\n";
+		$validationString .= "Token\n";
+		$validationString .= $json->Token . "\n";
+		$validationString .= "TopicArn\n";
+		$validationString .= $json->TopicArn . "\n";
+		$validationString .= "Type\n";
+		$validationString .= $json->Type . "\n";
+	}else{
+		$validationString = "";
+		$validationString .= "Message\n";
+		$validationString .= $json->Message . "\n";
+		$validationString .= "MessageId\n";
+		$validationString .= $json->MessageId . "\n";
+		if($json->Subject != ""){
+			$validationString .= "Subject\n";
+			$validationString .= $json->Subject . "\n";
+		}
+		$validationString .= "Timestamp\n";
+		$validationString .= $json->Timestamp . "\n";
+		$validationString .= "TopicArn\n";
+		$validationString .= $json->TopicArn . "\n";
+		$validationString .= "Type\n";
+		$validationString .= $json->Type . "\n";
 	}
-	$validationString .= "Timestamp\n";
-	$validationString .= $json->Timestamp . "\n";
-	$validationString .= "TopicArn\n";
-	$validationString .= $json->TopicArn . "\n";
-	$validationString .= "Type\n";
-	$validationString .= $json->Type . "\n";
-	
 	if($logToFile){
 		fwrite($fh, "Data Validation String:");
 		fwrite($fh, $validationString);
