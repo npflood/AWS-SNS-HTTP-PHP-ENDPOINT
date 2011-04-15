@@ -67,7 +67,7 @@ if($verifyCertificate){
 	
 	
 	//Build Up The String That Was Originally Encoded With The AWS Key So You Can Validate It Against Its Signature.
-	if($json->Type = "SubscriptionConfirmation"){
+	if($json->Type == "SubscriptionConfirmation"){
 		$validationString = "";
 		$validationString .= "Message\n";
 		$validationString .= $json->Message . "\n";
