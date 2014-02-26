@@ -122,7 +122,7 @@ if($verifyCertificate){
 if($safeToProcess){
 
 	//Handle A Subscription Request Programmatically
-	if($json->Type = "SubscriptionConfirmation"){
+	if($json->Type == "SubscriptionConfirmation"){
 		//RESPOND TO SUBSCRIPTION NOTIFICATION BY CALLING THE URL
 		
 		if($logToFile){
@@ -138,7 +138,7 @@ if($safeToProcess){
 	
 	
 	//Handle a Notification Programmatically
-	if($json->Type = "Notification"){
+	if($json->Type == "Notification"){
 		//Do what you want with the data here.
 		//fwrite($fh, $json->Subject);
 		//fwrite($fh, $json->Message);
